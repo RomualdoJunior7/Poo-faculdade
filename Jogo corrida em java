@@ -1,0 +1,30 @@
+package corrida01;
+
+import java.util.Random;
+public class Corrida01 {
+
+   
+    public static void main(String[] args) throws InterruptedException{
+      int distanciaMaxima = 20;
+      int distanciaV1 = 0;
+      int distanciaV2 = 0;
+      Random gerador = new Random();
+      while (distanciaV1 < distanciaMaxima && distanciaV2 < distanciaMaxima ){
+          int velocidade1 = gerador.nextInt(3) + 1;
+          int velocidade2 = gerador.nextInt(3) + 1;
+          distanciaV1 += velocidade1;
+          distanciaV2 += velocidade2;
+          System.out.println("ayrton senna esta na posicao: " + distanciaV1);
+          System.out.println("Allonson esta na posicao: " + distanciaV2);
+          Thread.sleep(1000);
+      }
+      if(distanciaV1 == distanciaMaxima && distanciaV2 == distanciaMaxima){
+        System.out.println("Empate");
+    } else if (distanciaV1 >= distanciaMaxima){
+     System.out.println("Veiculo 1 venceu!");
+    }else{
+          System.out.println("Veiculo 2 Venceu!");
+    }
+    }        
+    
+}
