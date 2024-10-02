@@ -1,0 +1,51 @@
+package aulapoo01;
+
+public class Aulapoo01 {
+
+    public static void main(String[] args) {
+      Canetas C1 = new Canetas();
+      C1.cor = "azul";
+      C1.ponta = 0.5f;
+      C1.rabiscar();
+        C1.tampar();
+        C1.status();
+        System.out.println("_________________________________");
+        
+        Canetas C2 = new Canetas();
+        C2.modelo = "bic";
+        C2.cor = "Preta";
+        C2.destampar();
+        C2.rabiscar();
+        C2.status();
+    }
+    
+}
+package aulapoo01;
+public class Canetas {
+    String modelo;
+            String cor;
+                    float ponta;
+                            int carga;
+                            boolean tampada;
+                            void status(){
+                                System.out.println("Modelo: " + this.modelo);
+                                System.out.println("Uma caneta: " + this.cor);
+                                System.out.println("esta tamapada? " + this.tampada);
+                                System.out.println("qual sua ponta? " + this.ponta);
+                                System.out.println("Carga: " + this.carga);
+                                        
+                            }
+                            void rabiscar() {
+                                if (this.tampada == true){
+                                    System.out.println("Erro! nao posso rabiscar");
+                                }else{
+                                    System.out.println("Estou rabiscando");
+                                }
+                            }
+                            void tampar(){
+                                this.tampada = true;
+                            }
+                            void destampar(){
+                               this.tampada = false; 
+                            }
+}
