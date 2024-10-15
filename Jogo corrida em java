@@ -2,7 +2,7 @@ package TrabalhoPoo;
 
 public class Corrida {
 
-	   private static int DISTANCIA_MAXIMA = 25;
+	   private static int DistanciaM = 25;
 
 	    public static void main(String[] args) throws InterruptedException {
 
@@ -22,23 +22,23 @@ public class Corrida {
 
 	            Thread.sleep(1000);
 
-	        } while (carro1.getDistanciaPercorrida() < DISTANCIA_MAXIMA
-	                && carro2.getDistanciaPercorrida() < DISTANCIA_MAXIMA);
+	        } while (carro1.getDistanciaPercorrida() < DistanciaM
+	                && carro2.getDistanciaPercorrida() < DistanciaM);
 
 	    }
 
-	    private static void exibirPosicoes(Carros carro1, Carros carro2) {
+	    private static void Posicoes(Carros carro1, Carros carro2) {
 	        System.out.println(carro1.getNome() + " está na posição: " + 
 	    carro1.getDistanciaPercorrida());
 	        System.out.println(carro2.getNome() + " está na posição: " +
 	    carro2.getDistanciaPercorrida());
 	    }
 
-	    private static void verificarVencedor(Carros carro1, Carros carro2) {
-	        if (carro1.getDistanciaPercorrida() == DISTANCIA_MAXIMA && 
-	        		carro2.getDistanciaPercorrida() == DISTANCIA_MAXIMA) {
+	    private static void Vencedor(Carros carro1, Carros carro2) {
+	        if (carro1.getDistanciaPercorrida() == DistanciaM && 
+	        		carro2.getDistanciaPercorrida() == DistanciaM) {
 	            System.out.println("Empate!");
-	        } else if (carro1.getDistanciaPercorrida() >= DISTANCIA_MAXIMA) {
+	        } else if (carro1.getDistanciaPercorrida() >= DistanciaM) {
 	            System.out.println(carro1.getNome() + " venceu!");
 	        } else {
 	            System.out.println(carro2.getNome() + " venceu!");
