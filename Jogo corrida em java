@@ -53,16 +53,16 @@ import java.util.Random;
 
 public class Carros {
 	 private String nome;
-	    private int distanciaPercorrida;
+	    private int distanciaP;
 
 	    public Carros(String nome) {
 	        this.nome = nome;
-	        this.distanciaPercorrida = 0;
+	        this.distanciaP = 0;
 	    }
 
 	    public void mover() {
 	        Random random = new Random();
-	        this.distanciaPercorrida += random.nextInt(3) + 1;
+	        this.distanciaP += random.nextInt(3) + 1;
 	    }
 
 	    public String getNome() {
