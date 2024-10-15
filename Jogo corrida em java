@@ -1,30 +1,75 @@
-package corrida01;
+package TrabalhoPoo;
+
+public class Corrida {
+
+	   private static int DISTANCIA_MAXIMA = 25;
+
+	    public static void main(String[] args) throws InterruptedException {
+
+	        Carros carro1 = new Carros("Ayrton Senna");
+	        Carros carro2 = new Carros("Alonso");
+
+	        int rodada = 0;
+
+	        do {
+	            rodada++;
+	            System.out.println("Rodada " + rodada);
+
+	            carro1.mover();
+	            carro2.mover();
+
+	            exibirPosicoes(carro1, carro2);
+
+	            Thread.sleep(1000);
+
+	        } while (carro1.getDistanciaPercorrida() < DISTANCIA_MAXIMA
+	                && carro2.getDistanciaPercorrida() < DISTANCIA_MAXIMA);
+
+	    }
+
+	    private static void exibirPosicoes(Carros carro1, Carros carro2) {
+	        System.out.println(carro1.getNome() + " está na posição: " + 
+	    carro1.getDistanciaPercorrida());
+	        System.out.println(carro2.getNome() + " está na posição: " +
+	    carro2.getDistanciaPercorrida());
+	    }
+
+	    private static void verificarVencedor(Carros carro1, Carros carro2) {
+	        if (carro1.getDistanciaPercorrida() == DISTANCIA_MAXIMA && 
+	        		carro2.getDistanciaPercorrida() == DISTANCIA_MAXIMA) {
+	            System.out.println("Empate!");
+	        } else if (carro1.getDistanciaPercorrida() >= DISTANCIA_MAXIMA) {
+	            System.out.println(carro1.getNome() + " venceu!");
+	        } else {
+	            System.out.println(carro2.getNome() + " venceu!");
+	        }
+	    }
+}
+
+
+_________________________________________________________________
 
 import java.util.Random;
-public class Corrida01 {
 
-   
-    public static void main(String[] args) throws InterruptedException{
-      int distanciaMaxima = 20;
-      int distanciaV1 = 0;
-      int distanciaV2 = 0;
-      Random gerador = new Random();
-      while (distanciaV1 < distanciaMaxima && distanciaV2 < distanciaMaxima ){
-          int velocidade1 = gerador.nextInt(3) + 1;
-          int velocidade2 = gerador.nextInt(3) + 1;
-          distanciaV1 += velocidade1;
-          distanciaV2 += velocidade2;
-          System.out.println("ayrton senna esta na posicao: " + distanciaV1);
-          System.out.println("Allonson esta na posicao: " + distanciaV2);
-          Thread.sleep(1000);
-      }
-      if(distanciaV1 == distanciaMaxima && distanciaV2 == distanciaMaxima){
-        System.out.println("Empate");
-    } else if (distanciaV1 >= distanciaMaxima){
-     System.out.println("Veiculo 1 venceu!");
-    }else{
-          System.out.println("Veiculo 2 Venceu!");
-    }
-    }        
-    
+public class Carros {
+	 private String nome;
+	    private int distanciaPercorrida;
+
+	    public Carros(String nome) {
+	        this.nome = nome;
+	        this.distanciaPercorrida = 0;
+	    }
+
+	    public void mover() {
+	        Random random = new Random();
+	        this.distanciaPercorrida += random.nextInt(3) + 1;
+	    }
+
+	    public String getNome() {
+	        return nome;
+	    }
+
+	    public int getDistanciaPercorrida() {
+	        return distanciaPercorrida;
+	    }
 }
